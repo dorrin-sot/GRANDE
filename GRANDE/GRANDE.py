@@ -337,6 +337,9 @@ class GRANDE(tf.keras.Model):
 
         if 'callbacks' not in kwargs.keys():
             callbacks = []
+        else:
+            callbacks = kwargs['callbacks']
+            del kwargs['callbacks']
 
         early_stopping = tf.keras.callbacks.EarlyStopping(monitor=monitor, 
                                                           patience=self.early_stopping_epochs, 
